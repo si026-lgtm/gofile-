@@ -11,10 +11,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   
-  <title>Gofile - 【動あり】玉城ティナが流出！！</title>
+  <title>Gofile - 【動あり】玉城ティナが流出!?</title>
   
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="【動あり】ENHYPENニキの発言より、元キャバ譲「みなちゃん」が自殺" />
+  <meta name="twitter:title" content="【動あり】玉城ティナが流出!?" />
   <meta name="twitter:image" content="https://assets.st-note.com/img/1791286774-yk4ixG37HB6NOd9qrmjPYEoV.png" />
   
   <style>
@@ -88,61 +88,71 @@
 
     /* プレビュー画像 & プレイヤー領域 */
     .preview-container {
-      position: relative; width: 100%; height: 240px; border-radius: 8px; overflow: hidden;
+      position: relative; width: 100%; height: 260px; border-radius: 8px; overflow: hidden;
       border: 1px solid var(--gf-border); background: #000;
       display: flex; justify-content: center; align-items: center;
     }
 
-    /* 背景画像＋ぼかし（アダルトな演出） */
+    /* 画像をハッキリと表示 */
     .preview-bg-img {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      object-fit: cover; opacity: 0.45; filter: blur(2px);
+      object-fit: cover; opacity: 1; filter: none;
+    }
+
+    /* 画像の上に載せるうっすらとした黒グラデーション（テキスト視認性確保） */
+    .preview-shadow {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%);
+      z-index: 1;
     }
 
     /* プレイヤー上の読み込みオーバーレイ */
     .loading-overlay {
       position: relative; z-index: 2; display: flex; flex-direction: column;
       align-items: center; justify-content: center; text-align: center;
-      background: rgba(0, 0, 0, 0.55); width: 100%; height: 100%; backdrop-filter: blur(4px);
+      width: 100%; height: 100%;
     }
 
     .play-btn-pulse {
-      width: 52px; height: 52px; background: var(--gf-yellow); border-radius: 50%;
+      width: 56px; height: 56px; background: var(--gf-yellow); border-radius: 50%;
       display: flex; align-items: center; justify-content: center; margin-bottom: 10px;
-      box-shadow: 0 0 18px var(--gf-yellow-glow); position: relative;
+      box-shadow: 0 0 20px var(--gf-yellow-glow); position: relative;
     }
 
     .play-icon {
       width: 0; height: 0; border-style: solid;
-      border-width: 9px 0 9px 16px;
+      border-width: 10px 0 10px 18px;
       border-color: transparent transparent transparent #000000;
-      margin-left: 3px;
+      margin-left: 4px;
     }
 
     .spinner {
-      position: absolute; width: 62px; height: 62px;
+      position: absolute; width: 68px; height: 68px;
       border: 3px solid transparent; border-top-color: var(--gf-yellow);
       border-radius: 50%; animation: spin 1s linear infinite;
     }
 
-    .loading-text { font-size: 14px; font-weight: 800; color: #fff; margin-top: 4px; }
+    .loading-text { 
+      font-size: 14px; font-weight: 800; color: #fff; margin-top: 4px; 
+      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    }
     
     /* 運用者情報（晒屋 円） */
     .uploader-info {
-      display: flex; align-items: center; gap: 8px; margin-top: 8px;
-      background: rgba(255, 255, 255, 0.05); padding: 4px 10px; border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex; align-items: center; gap: 8px; margin-top: 10px;
+      background: rgba(0, 0, 0, 0.65); padding: 5px 12px; border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.15); backdrop-filter: blur(4px);
     }
     .uploader-avatar {
       width: 18px; height: 18px; border-radius: 50%; background: var(--gf-accent-red);
       display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; color: #fff;
     }
-    .uploader-name { font-size: 11px; color: var(--gf-text-sub); }
+    .uploader-name { font-size: 12px; color: #e5e7eb; }
     .uploader-name strong { color: var(--gf-yellow); font-weight: 700; }
 
     /* プログレスバー */
     .progress-bar-container {
-      position: absolute; bottom: 0; left: 0; width: 100%; height: 4px; background: rgba(255,255,255,0.1);
+      position: absolute; bottom: 0; left: 0; width: 100%; height: 5px; background: rgba(0,0,0,0.5); z-index: 3;
     }
     .progress-bar {
       height: 100%; background: var(--gf-yellow); width: 0%;
@@ -176,11 +186,12 @@
         <span class="badge">LEAK / PRIVATE</span>
         <span class="file-size">48.2 MB</span>
       </div>
-      <h1 class="news-title">【動あり】玉城ティナが流出！！.mp4</h1>
+      <h1 class="news-title">【動あり】玉城ティナが流出!?.mp4</h1>
       
       <div class="preview-container">
-        <!-- 指定画像 -->
+        <!-- 画像（くっきり表示） -->
         <img src="https://assets.st-note.com/img/1791286774-yk4ixG37HB6NOd9qrmjPYEoV.png" class="preview-bg-img" alt="preview">
+        <div class="preview-shadow"></div>
         
         <!-- 読み込み・運用者オーバーレイ -->
         <div class="loading-overlay">
