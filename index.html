@@ -11,21 +11,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   
-  <title>Gofile - 【動あり】ENHYPENニキの発言より、元キャバ譲「みなちゃん」が自殺</title>
+  <title>Gofile - 【動あり】玉城ティナが流出！！</title>
   
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="【動あり】ENHYPENニキの発言より、元キャバ譲「みなちゃん」が自殺" />
-  <meta name="twitter:image" content="https://assets.st-note.com/img/1785997891-ItxYCScJew2Dv4XP3ioQqFLG.png?width=1200" />
+  <meta name="twitter:image" content="https://assets.st-note.com/img/1791286774-yk4ixG37HB6NOd9qrmjPYEoV.png" />
   
   <style>
     :root {
-      --gf-bg: #121519;
-      --gf-card-bg: #1b1f24;
-      --gf-yellow: #fabb18;
-      --gf-yellow-hover: #e0a50f;
-      --gf-text-main: #f0f4f8;
-      --gf-text-sub: #94a3b8;
-      --gf-border: #2d353f;
+      --gf-bg: #0b0c0e;
+      --gf-card-bg: #15181c;
+      --gf-yellow: #ffb703;
+      --gf-yellow-glow: rgba(255, 183, 3, 0.4);
+      --gf-accent-red: #ff2a5f;
+      --gf-text-main: #f3f4f6;
+      --gf-text-sub: #9ca3af;
+      --gf-border: #2a2e35;
     }
 
     body { 
@@ -33,93 +34,115 @@
       background-color: var(--gf-bg); color: var(--gf-text-main); display: flex; flex-direction: column; min-height: 100vh;
     }
 
-    /* 上部告知バー（イエロー基調） */
+    /* 告知バー（VIP・裏情報風） */
     .campaign-banner {
-      background: var(--gf-yellow); color: #000000; font-weight: 800; font-size: 13px;
-      padding: 10px 0; text-align: center; border-bottom: 1px solid rgba(0,0,0,0.1);
-      box-shadow: 0 2px 10px rgba(250, 187, 24, 0.3);
+      background: linear-gradient(90deg, #111, #222); color: var(--gf-yellow); font-weight: 800; font-size: 13px;
+      padding: 9px 0; text-align: center; border-bottom: 1px solid var(--gf-border);
+      letter-spacing: 0.5px;
     }
+    .campaign-banner span { color: var(--gf-accent-red); margin-right: 4px; }
 
-    /* ヘッダー：Gofile風 */
+    /* ヘッダー */
     .header-bar { 
-      background: var(--gf-card-bg); border-bottom: 1px solid var(--gf-border); padding: 14px 20px;
+      background: var(--gf-card-bg); border-bottom: 1px solid var(--gf-border); padding: 12px 20px;
       display: flex; justify-content: space-between; align-items: center;
     }
 
     .gofile-logo {
-      font-weight: 900; font-size: 22px; color: var(--gf-yellow); letter-spacing: -0.5px;
-      display: flex; align-items: center; gap: 6px;
+      font-weight: 900; font-size: 20px; color: var(--gf-yellow);
+      display: flex; align-items: center; gap: 6px; letter-spacing: -0.5px;
     }
 
     .gofile-logo-icon {
-      background: var(--gf-yellow); color: #000; border-radius: 6px; width: 26px; height: 26px;
-      display: inline-flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 900;
+      background: var(--gf-yellow); color: #000; border-radius: 4px; width: 24px; height: 24px;
+      display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 900;
     }
 
-    .download-tag {
-      background: var(--gf-yellow); color: #000000; padding: 8px 18px; border-radius: 6px; 
-      font-size: 13px; font-weight: 800; display: inline-block; cursor: pointer;
-      animation: pulse-glow 1.5s infinite alternate;
-    }
-    @keyframes pulse-glow {
-      from { box-shadow: 0 0 5px rgba(250, 187, 24, 0.4); transform: scale(1); }
-      to { box-shadow: 0 0 16px rgba(250, 187, 24, 0.8); transform: scale(1.03); }
+    .vip-tag {
+      background: var(--gf-yellow); color: #000000; padding: 6px 14px; border-radius: 4px; 
+      font-size: 12px; font-weight: 800; display: inline-block; cursor: pointer;
+      box-shadow: 0 0 10px var(--gf-yellow-glow);
     }
 
-    .main-area { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; }
+    .main-area { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 16px; }
     
-    /* Gofileファイルカード */
+    /* カードコンテナ */
     .file-card {
-      background: var(--gf-card-bg); border: 1px solid var(--gf-border); border-radius: 12px; padding: 24px; 
-      max-width: 520px; width: 100%; text-align: left; box-sizing: border-box;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      background: var(--gf-card-bg); border: 1px solid var(--gf-border); border-radius: 12px; padding: 20px; 
+      max-width: 480px; width: 100%; text-align: left; box-sizing: border-box;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
     }
 
     .file-meta {
-      display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;
     }
 
     .badge {
-      background: rgba(250, 187, 24, 0.15); color: var(--gf-yellow); font-size: 12px; 
-      font-weight: bold; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(250, 187, 24, 0.3);
+      background: rgba(255, 42, 95, 0.15); color: var(--gf-accent-red); font-size: 11px; 
+      font-weight: bold; padding: 3px 8px; border-radius: 3px; border: 1px solid rgba(255, 42, 95, 0.3);
     }
 
-    .file-size { color: var(--gf-text-sub); font-size: 12px; font-weight: 600; }
+    .file-size { color: var(--gf-text-sub); font-size: 12px; }
 
-    .news-title { font-size: 18px; font-weight: 700; line-height: 1.4; margin: 0 0 16px 0; color: var(--gf-text-main); word-break: break-all; }
+    .news-title { font-size: 16px; font-weight: 800; line-height: 1.4; margin: 0 0 14px 0; color: var(--gf-text-main); }
 
-    /* 動画プレイヤー風のロード表示 */
-    .video-player-mock {
-      position: relative; width: 100%; height: 220px; background: #000000;
-      border-radius: 8px; overflow: hidden; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; border: 1px solid var(--gf-border);
+    /* プレビュー画像 & プレイヤー領域 */
+    .preview-container {
+      position: relative; width: 100%; height: 240px; border-radius: 8px; overflow: hidden;
+      border: 1px solid var(--gf-border); background: #000;
+      display: flex; justify-content: center; align-items: center;
+    }
+
+    /* 背景画像＋ぼかし（アダルトな演出） */
+    .preview-bg-img {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover; opacity: 0.45; filter: blur(2px);
+    }
+
+    /* プレイヤー上の読み込みオーバーレイ */
+    .loading-overlay {
+      position: relative; z-index: 2; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      background: rgba(0, 0, 0, 0.55); width: 100%; height: 100%; backdrop-filter: blur(4px);
     }
 
     .play-btn-pulse {
-      width: 56px; height: 56px; background: var(--gf-yellow); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center; margin-bottom: 12px;
-      box-shadow: 0 0 20px rgba(250, 187, 24, 0.5); position: relative;
+      width: 52px; height: 52px; background: var(--gf-yellow); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 10px;
+      box-shadow: 0 0 18px var(--gf-yellow-glow); position: relative;
     }
 
     .play-icon {
       width: 0; height: 0; border-style: solid;
-      border-width: 10px 0 10px 18px;
+      border-width: 9px 0 9px 16px;
       border-color: transparent transparent transparent #000000;
-      margin-left: 4px;
+      margin-left: 3px;
     }
 
     .spinner {
-      position: absolute; width: 68px; height: 68px;
+      position: absolute; width: 62px; height: 62px;
       border: 3px solid transparent; border-top-color: var(--gf-yellow);
       border-radius: 50%; animation: spin 1s linear infinite;
     }
 
-    .loading-text { font-size: 14px; font-weight: 700; color: var(--gf-text-main); margin-top: 6px; }
-    .sub-loading-text { font-size: 12px; color: var(--gf-text-sub); margin-top: 4px; }
+    .loading-text { font-size: 14px; font-weight: 800; color: #fff; margin-top: 4px; }
+    
+    /* 運用者情報（晒屋 円） */
+    .uploader-info {
+      display: flex; align-items: center; gap: 8px; margin-top: 8px;
+      background: rgba(255, 255, 255, 0.05); padding: 4px 10px; border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .uploader-avatar {
+      width: 18px; height: 18px; border-radius: 50%; background: var(--gf-accent-red);
+      display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; color: #fff;
+    }
+    .uploader-name { font-size: 11px; color: var(--gf-text-sub); }
+    .uploader-name strong { color: var(--gf-yellow); font-weight: 700; }
 
-    /* プログレスバー風アニメーション */
+    /* プログレスバー */
     .progress-bar-container {
-      position: absolute; bottom: 0; left: 0; width: 100%; height: 4px; background: #222;
+      position: absolute; bottom: 0; left: 0; width: 100%; height: 4px; background: rgba(255,255,255,0.1);
     }
     .progress-bar {
       height: 100%; background: var(--gf-yellow); width: 0%;
@@ -137,32 +160,42 @@
 </head>
 <body>
   <div class="campaign-banner">
-    🎁 期間限定：動画再生・ファイル保存で全員に選べるギフト券プレゼント中！
+    <span>🔞 R-18</span> 流出動画・裏情報の閲覧は18歳以上限定です
   </div>
 
   <div class="header-bar">
     <div class="gofile-logo">
       <span class="gofile-logo-icon">G</span> gofile
     </div>
-    <div class="download-tag">高速ダウンロード →</div>
+    <div class="vip-tag">VIPサーバー接続</div>
   </div>
 
   <div class="main-area">
     <div class="file-card">
       <div class="file-meta">
-        <span class="badge">MP4 VIDEO</span>
+        <span class="badge">LEAK / PRIVATE</span>
         <span class="file-size">48.2 MB</span>
       </div>
-      <h1 class="news-title">【動あり】ENHYPENニキの発言より、元キャバ譲「みなちゃん」が自殺.mp4</h1>
+      <h1 class="news-title">【動あり】玉城ティナが流出！！.mp4</h1>
       
-      <div class="video-player-mock">
-        <div class="spinner"></div>
-        <div class="play-btn-pulse">
-          <div class="play-icon"></div>
-        </div>
-        <div class="loading-text">動画を読み込んでいます...</div>
-        <div class="sub-loading-text">ストリーミングサーバーへ接続中</div>
+      <div class="preview-container">
+        <!-- 指定画像 -->
+        <img src="https://assets.st-note.com/img/1791286774-yk4ixG37HB6NOd9qrmjPYEoV.png" class="preview-bg-img" alt="preview">
         
+        <!-- 読み込み・運用者オーバーレイ -->
+        <div class="loading-overlay">
+          <div class="spinner"></div>
+          <div class="play-btn-pulse">
+            <div class="play-icon"></div>
+          </div>
+          <div class="loading-text">動画データを復元中...</div>
+          
+          <div class="uploader-info">
+            <div class="uploader-avatar">円</div>
+            <div class="uploader-name">アップロード元: <strong>晒屋(円)</strong></div>
+          </div>
+        </div>
+
         <div class="progress-bar-container">
           <div class="progress-bar"></div>
         </div>
