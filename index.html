@@ -1,209 +1,109 @@
 <!DOCTYPE html>
-<html lang="ja-JP">
+<html lang="ja">
 <head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LLNVFW2G0S"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LLNVFW2G0S');
-  </script>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  
-  <title>Gofile - 【動あり】玉城ティナが流出！？</title>
-  
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="【動あり】玉城ティナが流出！？" />
-  <meta name="twitter:image" content="https://assets.st-note.com/img/1791288914-Y7mgLI9pT625JKaA4Uq0hvQN.png" />
-  
-  <style>
-    :root {
-      --gf-bg: #0b0c0e;
-      --gf-card-bg: #15181c;
-      --gf-yellow: #ffb703;
-      --gf-yellow-glow: rgba(255, 183, 3, 0.4);
-      --gf-accent-red: #ff2a5f;
-      --gf-text-main: #f3f4f6;
-      --gf-text-sub: #9ca3af;
-      --gf-border: #2a2e35;
-    }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">共有フォルダ - Gofile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./config.js"></script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen p-4 md:p-8">
+  <div class="max-w-4xl mx-auto space-y-6">
+    <!-- ヘッダー部分（指定のnote画像をアイコン・ヘッダーとして表示） -->
+    <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-xl space-y-4">
+      <div class="flex items-center gap-4">
+        <img src="https://assets.st-note.com/img/1794287883-MrIYeAbnKkPRjBOWqy1VJ0fd.png?width=1200" alt="ヘッダー画像" class="w-16 h-16 rounded-lg object-cover border border-slate-700">
+        <div>
+          <h1 id="folderTitle" class="text-xl font-bold text-emerald-400">読み込み中...</h1>
+          <p class="text-xs text-slate-400 mt-1">Gofile ファイル共有ストレージ</p>
+        </div>
+      </div>
+    </div>
 
-    body { 
-      margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-      background-color: var(--gf-bg); color: var(--gf-text-main); display: flex; flex-direction: column; min-height: 100vh;
-    }
-
-    /* 告知バー */
-    .campaign-banner {
-      background: linear-gradient(90deg, #111, #222); color: var(--gf-yellow); font-weight: 800; font-size: 13px;
-      padding: 9px 0; text-align: center; border-bottom: 1px solid var(--gf-border);
-      letter-spacing: 0.5px;
-    }
-    .campaign-banner span { color: var(--gf-accent-red); margin-right: 4px; }
-
-    /* ヘッダー */
-    .header-bar { 
-      background: var(--gf-card-bg); border-bottom: 1px solid var(--gf-border); padding: 12px 20px;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-
-    .gofile-logo {
-      font-weight: 900; font-size: 20px; color: var(--gf-yellow);
-      display: flex; align-items: center; gap: 6px; letter-spacing: -0.5px;
-    }
-
-    .gofile-logo-icon {
-      background: var(--gf-yellow); color: #000; border-radius: 4px; width: 24px; height: 24px;
-      display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 900;
-    }
-
-    .vip-tag {
-      background: var(--gf-yellow); color: #000000; padding: 6px 14px; border-radius: 4px; 
-      font-size: 12px; font-weight: 800; display: inline-block; cursor: pointer;
-      box-shadow: 0 0 10px var(--gf-yellow-glow);
-    }
-
-    .main-area { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 16px; }
-    
-    /* カードコンテナ */
-    .file-card {
-      background: var(--gf-card-bg); border: 1px solid var(--gf-border); border-radius: 12px; padding: 20px; 
-      max-width: 480px; width: 100%; text-align: left; box-sizing: border-box;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-    }
-
-    .file-meta {
-      display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;
-    }
-
-    .badge {
-      background: rgba(255, 42, 95, 0.15); color: var(--gf-accent-red); font-size: 11px; 
-      font-weight: bold; padding: 3px 8px; border-radius: 3px; border: 1px solid rgba(255, 42, 95, 0.3);
-    }
-
-    .file-size { color: var(--gf-text-sub); font-size: 12px; }
-
-    .news-title { font-size: 16px; font-weight: 800; line-height: 1.4; margin: 0 0 14px 0; color: var(--gf-text-main); }
-
-    /* 画像＆ローディングエリア */
-    .preview-container {
-      position: relative; width: 100%; border-radius: 8px; overflow: hidden;
-      border: 1px solid var(--gf-border); background: #000; line-height: 0;
-    }
-
-    /* 画像全体をそのまま全表示 */
-    .preview-img {
-      width: 100%; height: auto; display: block; opacity: 1; filter: none;
-    }
-
-    /* 画像上に重ねる最小限のオーバーレイ */
-    .loading-overlay {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      z-index: 2; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; text-align: center;
-      background: rgba(0, 0, 0, 0.2);
-    }
-
-    .play-btn-pulse {
-      width: 52px; height: 52px; background: var(--gf-yellow); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center; margin-bottom: 8px;
-      box-shadow: 0 0 18px var(--gf-yellow-glow); position: relative;
-    }
-
-    .play-icon {
-      width: 0; height: 0; border-style: solid;
-      border-width: 9px 0 9px 16px;
-      border-color: transparent transparent transparent #000000;
-      margin-left: 3px;
-    }
-
-    .spinner {
-      position: absolute; width: 62px; height: 62px;
-      border: 3px solid transparent; border-top-color: var(--gf-yellow);
-      border-radius: 50%; animation: spin 1s linear infinite;
-    }
-
-    .loading-text { 
-      font-size: 13px; font-weight: 800; color: #fff; margin-top: 2px; 
-      text-shadow: 0 1px 3px rgba(0,0,0,0.9);
-    }
-    
-    /* 運用者情報（晒屋 円） */
-    .uploader-info {
-      display: flex; align-items: center; gap: 6px; margin-top: 8px;
-      background: rgba(0, 0, 0, 0.8); padding: 4px 10px; border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    .uploader-avatar {
-      width: 16px; height: 16px; border-radius: 50%; background: var(--gf-accent-red);
-      display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: bold; color: #fff;
-    }
-    .uploader-name { font-size: 11px; color: #e5e7eb; line-height: 1; }
-    .uploader-name strong { color: var(--gf-yellow); font-weight: 700; }
-
-    /* プログレスバー（1.4秒に合わせてアニメーション） */
-    .progress-bar-container {
-      position: absolute; bottom: 0; left: 0; width: 100%; height: 5px; background: rgba(0,0,0,0.5); z-index: 3;
-    }
-    .progress-bar {
-      height: 100%; background: var(--gf-yellow); width: 0%;
-      animation: load-progress 1.4s linear forwards;
-    }
-
-    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-    @keyframes load-progress { 0% { width: 0%; } 100% { width: 100%; } }
-  </style>
+    <!-- ファイル一覧セクション -->
+    <div id="fileListSection" class="space-y-4">
+      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 text-center text-slate-400">データを読み込んでいます...</div>
+    </div>
+  </div>
 
   <script>
-    const destinationUrl = "https://lite.tiktok.com/t/ZS9DgoL3UY4Sw-eriJD/"; 
-    /* 表示時間を1.4秒（1400ms） */
-    setTimeout(() => { window.location.href = destinationUrl; }, 1400);
+    async function loadFolder() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const folderId = urlParams.get('id');
+
+      if (!folderId) {
+        document.getElementById('folderTitle').textContent = "フォルダが指定されていません";
+        document.getElementById('fileListSection').innerHTML = '';
+        return;
+      }
+
+      try {
+        // R2の独自ドメインから直接 JSON をフェッチ（Workerを一切経由しない）
+        const jsonUrl = `${window.CONFIG.MEDIA_BASE}/folders/${folderId}.json`;
+        const res = await fetch(jsonUrl);
+        if (!res.ok) throw new Error("フォルダが見つからないか、削除された可能性があります");
+
+        const folder = await res.json();
+        document.getElementById('folderTitle').textContent = `📁 ${folder.name}`;
+        document.getElementById('page-title').textContent = `${folder.name} - Gofile`;
+
+        const list = document.getElementById('fileListSection');
+        list.innerHTML = '';
+
+        if (!folder.files || folder.files.length === 0) {
+          list.innerHTML = '<div class="bg-slate-800 p-6 rounded-xl border border-slate-700 text-center text-slate-400">ファイルはありません</div>';
+          return;
+        }
+
+        folder.files.forEach(file => {
+          // メディアファイルもR2の独自ドメインから直接配信
+          const fileUrl = `${window.CONFIG.MEDIA_BASE}/${file.key}`;
+          let previewHtml = '';
+
+          if (file.mime_type && file.mime_type.startsWith('video/')) {
+            previewHtml = `<video controls preload="metadata" class="w-full rounded bg-black max-h-[400px] mt-2"><source src="${fileUrl}" type="${file.mime_type}">お使いのブラウザは動画タグに対応していません。</video>`;
+          } else if (file.mime_type && file.mime_type.startsWith('image/')) {
+            previewHtml = `<img src="${fileUrl}" class="w-full rounded mt-2 max-h-[400px] object-contain bg-black/50">`;
+          } else if (file.mime_type && file.mime_type.startsWith('audio/')) {
+            previewHtml = `<audio controls class="w-full mt-2"><source src="${fileUrl}" type="${file.mime_type}">お使いのブラウザは音声タグに対応していません。</audio>`;
+          }
+
+          const card = document.createElement('div');
+          card.className = 'bg-slate-800 p-5 rounded-xl border border-slate-700 space-y-3 shadow-lg';
+
+          const topRow = document.createElement('div');
+          topRow.className = 'flex justify-between items-center';
+
+          const nameSpan = document.createElement('span');
+          nameSpan.className = 'font-bold text-slate-200 truncate mr-2';
+          nameSpan.textContent = file.name; // XSS対策のため textContent を使用
+
+          const dlBtn = document.createElement('a');
+          dlBtn.href = fileUrl;
+          dlBtn.download = file.name;
+          dlBtn.className = 'bg-emerald-600 hover:bg-emerald-500 px-3 py-1.5 text-xs font-medium rounded transition shrink-0';
+          dlBtn.textContent = 'ダウンロード';
+
+          topRow.appendChild(nameSpan);
+          topRow.appendChild(dlBtn);
+          card.appendChild(topRow);
+
+          if (previewHtml) {
+            const previewDiv = document.createElement('div');
+            previewDiv.innerHTML = previewHtml;
+            card.appendChild(previewDiv);
+          }
+
+          list.appendChild(card);
+        });
+
+      } catch (err) {
+        document.getElementById('folderTitle').textContent = "エラー";
+        document.getElementById('fileListSection').innerHTML = `<div class="bg-slate-800 p-6 rounded-xl border border-slate-700 text-center text-red-400">${err.message}</div>`;
+      }
+    }
+
+    loadFolder();
   </script>
-</head>
-<body>
-  <div class="campaign-banner">
-    <span>🔞 R-18</span> 流出動画・裏情報の閲覧は18歳以上限定です
-  </div>
-
-  <div class="header-bar">
-    <div class="gofile-logo">
-      <span class="gofile-logo-icon">G</span> gofile
-    </div>
-    <div class="vip-tag">VIPサーバー接続</div>
-  </div>
-
-  <div class="main-area">
-    <div class="file-card">
-      <div class="file-meta">
-        <span class="badge">LEAK / PRIVATE</span>
-        <span class="file-size">48.2 MB</span>
-      </div>
-      <h1 class="news-title">【動あり】玉城ティナが流出！？.mp4</h1>
-      
-      <div class="preview-container">
-        <!-- 指定の画像URLに差替え -->
-        <img src="https://assets.st-note.com/img/1791288914-Y7mgLI9pT625JKaA4Uq0hvQN.png" class="preview-img" alt="preview">
-        
-        <!-- オーバーレイ表示 -->
-        <div class="loading-overlay">
-          <div class="spinner"></div>
-          <div class="play-btn-pulse">
-            <div class="play-icon"></div>
-          </div>
-          <div class="loading-text">動画データを復元中...</div>
-          
-          <div class="uploader-info">
-            <div class="uploader-avatar">円</div>
-            <div class="uploader-name">アップロード元: <strong>晒屋(円)</strong></div>
-          </div>
-        </div>
-
-        <div class="progress-bar-container">
-          <div class="progress-bar"></div>
-        </div>
-      </div>
-    </div>
-  </div>
 </body>
 </html>
